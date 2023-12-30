@@ -11,7 +11,7 @@ function parseAircraftList(){
 	
 	for(let dr = 1; dr < dataRows.length; dr++){
 		dataCells = dataRows[dr].querySelectorAll(".dt-td");
-		if(dataCells[5].innerText == "ntu"){continue}
+//		if(dataCells[5].innerText == "ntu"){continue}
 		let afReg = dataCells[1].innerText;
 		let afSerial = getMsnLn(dataCells[2].innerText);
 		let afMSN = afSerial[0];
@@ -21,7 +21,7 @@ function parseAircraftList(){
 		let afModel = afBrandAndModel[1];
 		let afConfig = getConfig(dataCells[4].innerText);
 		let afDelivered = getEventDate(dataCells[5].innerText);
-		let afStatus = getStatus(dataCells[7].innerText);
+		let afStatus = "Летает";
 		
 		let copyString = `${afBrand};${afModel};${afReg};${afMSN};${afLN};${afAirline};${afDelivered};;${afConfig};${afStatus}\n`;
 		copyArray += copyString;
