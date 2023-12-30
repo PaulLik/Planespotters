@@ -7,7 +7,8 @@
 
   "browser_specific_settings": {
     "gecko": {
-      "id": "webextensions@likhatchev.ru"
+      "id": "webextensions@likhatchev.ru",
+	  "update_url" : "https://github.com/PaulLik/Planespotters/blob/master/Planespotters%20Fleet%20Copy.xpi"
     }
   },
   
