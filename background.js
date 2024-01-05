@@ -1,6 +1,6 @@
 browser.contextMenus.create({
 	id: "copy_active_table",
-	title: "Таблица действующих ВС",
+	title: "Копировать таблицу действующих ВС",
 	icons: {
 		32: "icons/icon32active.png"
 	},
@@ -8,7 +8,7 @@ browser.contextMenus.create({
 
 browser.contextMenus.create({
 	id: "copy_historic_table",
-	title: "Таблица бывших ВС",
+	title: "Копировать таблицу бывших ВС",
 	icons: {
 		32: "icons/icon32historic.png"
 	},

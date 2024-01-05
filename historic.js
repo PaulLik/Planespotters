@@ -14,7 +14,7 @@ function parseAircraftList(){
 		if(dataCells[5].innerText == "ntu"){continue}
 		let afReg = dataCells[1].innerText;
 		let afSerial = getMsnLn(dataCells[2].innerText);
-		let afMSN = afSerial[0];
+		let afMSN = afSerial[0].padStart(4,"0");
 		let afLN = afSerial[1];
 		let afBrandAndModel = getBrandAndModel(dataCells[3].innerText);
 		let afBrand = afBrandAndModel[0];
