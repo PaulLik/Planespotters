@@ -54,8 +54,6 @@
     <script async="async" src="https://cdn-a.yieldlove.com/v2/yieldlove.js?planespotters.net"></script>
 
     <link rel="stylesheet" type="text/css" href="https://static4.planespotters.net/css/theme-583fdf86eb.min.css" />
-    <script src="https://static4.planespotters.net/js/planespotters-2d46f35bbe.libs.js"></script>
-    <script src="https://static4.planespotters.net/js/planespotters-2178d8aede.main.js"></script>
     
                         <script async="async" src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
             <script>
@@ -4339,40 +4337,17 @@ googletag.display("div-gpt-ad-1407836286108-0");
 
 <div class="loading-modal">Loading</div>
 
-    <script>
-	var _paq = window._paq = window._paq || [];
-	/* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-	_paq.push(["setExcludedQueryParams", ["p","sort","dir"]]);
-	_paq.push(['trackPageView']);
-	_paq.push(['enableLinkTracking']);
-	(function() {
-		var u="//stats.planespotters.net/";
-		_paq.push(['setTrackerUrl', u+'matomo.php']);
-		_paq.push(['setSiteId', '1']);
-		var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-		g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-	})();
-</script>
-
-<script>
-    	PS.Prodlist.enableLogging();
-    </script>
-
 
 
 <script>
-    	PS.Prodlist.enableLogging();
-    </script>
-<script type="module" src="https://static4.planespotters.net/js/instant-c24b5856c7.js"></script>
-
-<script>
-document.addEventListener("click", function(){
-let tabs_fleet = document.getElementById("tabs_fleet");
-let current_tab = tabs_fleet.getElementsByTagName("li");
-for(let i = 0; i < current_tab.length; i++){
-	console.log(`${i}: ${current_tab[i].innerText}, Active: ${current_tab[i].className == "active"}`);
-}
-});
+	document.addEventListener("click", function(){
+		let tabs_fleet = document.getElementById("tabs_fleet");
+		let current_tab = tabs_fleet.getElementsByTagName("li");
+		console.log(`LI length: ${current_tab.length}`);
+		for(let i = 0; i < current_tab.length; i++){
+			console.log(`${i}: ${current_tab[i].innerText}, Active: ${current_tab[i].className == "active"}`);
+		}
+	});
 </script>
 
 </body>

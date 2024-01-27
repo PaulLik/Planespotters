@@ -1,4 +1,4 @@
-browser.contextMenus.create({
+/*browser.contextMenus.create({
 	id: "copy_active_table",
 	title: "Копировать таблицу действующих ВС",
 	icons: {
@@ -11,6 +11,14 @@ browser.contextMenus.create({
 	title: "Копировать таблицу бывших ВС",
 	icons: {
 		32: "icons/icon32historic.png"
+	},
+});*/
+
+browser.contextMenus.create({
+	id: "copy_fleet_table",
+	title: "Копировать таблицу ВС",
+	icons: {
+		32: "icons/icon32.png"
 	},
 });
 
@@ -26,4 +34,13 @@ browser.contextMenus.onClicked.addListener((info, tab) => {
 			file: "historic.js",
 		});
 	}
+
+	if (info.menuItemId === "copy_fleet_table") {
+		browser.tabs.executeScript({
+			file: "selector.js",
+		});
+	}
+
+
+
 });

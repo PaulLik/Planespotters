@@ -221,8 +221,8 @@ function getStatus(statusfate){
 	}
 }
 
-if(document.URL.includes("planespotters.net/airline/")){
+//if(document.URL.includes("planespotters.net/airline/")){
 	parseAircraftList();
-} else {
-	window.alert("Адрес источника не совпадает с целевым");
-}
+//} else {
+//	window.alert("Адрес источника не совпадает с целевым");
+//}

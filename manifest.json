@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Planespotters Fleet Copy",
-  "version": "1.0",
+  "version": "2.0",
 
   "description": "Copies fleet tables from planespotters.net",
 
@@ -12,7 +12,7 @@
     }
   },
   
-  "permissions": ["activeTab", "contextMenus"],
+  "permissions": ["activeTab", "contextMenus", "scripting"],
 
   "icons": {
     "32": "icons/icon32.png"

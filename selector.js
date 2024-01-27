@@ -1,5 +1,23 @@
-function parseAircraftList(){
-	
+var tabs_fleet = document.getElementById("tabs_fleet");
+var current_tab = tabs_fleet.getElementsByTagName("li");
+for(var i = 0; i < current_tab.length; i++){
+	if (current_tab[i].className == "active"){
+		switch(current_tab[i].innerText){
+			case "CURRENT FLEET":
+				//console.log("Will parse current");
+				parseActiveList();
+				break;
+			case "HISTORIC FLEET":
+				//console.log("Will parse historic");
+				parseHistoricList();
+				break;
+		}
+		break;
+	}
+}
+
+function parseActiveList(){
+	//console.log("Will parse current");
 	let pageTitle = document.getElementsByTagName("Title")[0].innerText;
 	let afAirline = pageTitle.slice(0,pageTitle.indexOf(" Fleet"));
 	
@@ -27,9 +45,41 @@ function parseAircraftList(){
 		copyArray += copyString;
 	}
 	navigator.clipboard.writeText(copyArray);
-	window.alert("Данные скопированы");
+	window.alert("Данные авктивных ВС скопированы");
 }
 
+function parseHistoricList(){
+	//console.log("Will parse historic");
+	let pageTitle = document.getElementsByTagName("Title")[0].innerText;
+	let afAirline = pageTitle.slice(0,pageTitle.indexOf(" Fleet"));
+	
+	let dataTable = document.getElementsByClassName("datatable dt-outline dt-striped")[0];
+	
+	let dataRows = dataTable.querySelectorAll(".dt-tr");
+	
+	let copyArray = "";
+	
+	for(let dr = 1; dr < dataRows.length; dr++){
+		dataCells = dataRows[dr].querySelectorAll(".dt-td");
+		if(dataCells[5].innerText == "ntu"){continue}
+		let afReg = dataCells[1].innerText;
+		let afSerial = getMsnLn(dataCells[2].innerText);
+		let afMSN = afSerial[0].padStart(4,"0");
+		let afLN = afSerial[1];
+		let afBrandAndModel = getBrandAndModel(dataCells[3].innerText);
+		let afBrand = afBrandAndModel[0];
+		let afModel = afBrandAndModel[1];
+		let afConfig = getConfig(dataCells[4].innerText);
+		let afDelivered = getEventDate(dataCells[5].innerText);
+		let afExited = getEventDate(dataCells[6].innerText);
+		let afStatus = getStatus(dataCells[7].innerText);
+		
+		let copyString = `${afBrand};${afModel};${afReg};${afMSN};${afLN};${afAirline};${afDelivered};${afExited};${afConfig};${afStatus}\n`;
+		copyArray += copyString;
+	}
+	navigator.clipboard.writeText(copyArray);
+	window.alert("Данные исторических ВС скопированы");
+}
 
 function getMsnLn(serialNumber){
 	let msn = "";
@@ -219,9 +269,3 @@ function getStatus(statusfate){
 			return "Смена оператора";
 	}
 }
-
-// if(document.URL.includes("planespotters.net/airline/")){
-	parseAircraftList();
-/*} else {
-	window.alert("Адрес источника не совпадает с целевым");
-}*/
